@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import react and reactDOM libraries
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// create react component
+const App = () => {
+  const style = { background: "blue", color: "white" };
+  const label = "Enter name:";
+  const buttonText = { text: "click on me!" };
+  return (
+    <div>
+      <label className="label" htmlFor="name">
+        {label}
+      </label>
+      <input id="name" type="text" />
+      <button style={style}>{buttonText.text}</button>
+    </div>
+  );
+};
+//take the react component and show it on the screen
+ReactDOM.render(<App />, document.querySelector("#root"));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// to automatically refresh
+if (module.hot) {
+  module.hot.accept();
+}
